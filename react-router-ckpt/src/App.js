@@ -1,13 +1,38 @@
-// import logo from './logo.svg';
 import './App.css';
+import { Link, Switch, Route } from "react-router-dom";
+import Home from './Components/Home';
+import About from "./Components/About";
+import Profiles from "./Components/Profiles";
 
 export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      </header>
-    </div>
+      <nav>
+        <ul>
+          <li>
+            <Link exact to="/">My Profile</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/profiles">Profiles</Link>
+          </li>
+        </ul>
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/profiles'>
+            <Profiles />
+          </Route>
+        </Switch>
+      </nav>
+    </div >
   );
 }
 
@@ -27,6 +52,8 @@ First Name
 Last Name
 Birthday
 A profile pic (can be relative or external url)
+
+
 Your profiles and news feed data should be hard coded to look something like this:
 
 {
